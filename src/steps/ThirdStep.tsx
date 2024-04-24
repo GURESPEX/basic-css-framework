@@ -16,19 +16,18 @@ import { useState } from "react";
 type CheckboxValueType = GetProp<typeof Checkbox.Group, "value">[number];
 
 const ThirdStep = () => {
-  //   const [dob, setDob] = useState<dayjs>();
   const [gender, setGender] = useState<"male" | "female">();
   const [listedHobbies, setListedHobbies] = useState<CheckboxValueType[]>([]);
-  const [otherHobbie, setOtherHobbie] = useState<CheckboxValueType>("");
+  const [otherHobbie, setOtherHobbie] = useState<string>("");
   const [isOtherHobbieChecked, setIsOtherHobbieChecked] =
     useState<boolean>(false);
   const [accept, setAccept] = useState<boolean>(false);
 
+  const options = ["ดูหนัง", "ฟังเพลง", "เล่นเกมส์"];
+
   const hobbies = [...listedHobbies, otherHobbie].filter(
     (hobbie) => hobbie !== ""
   );
-
-  const options = ["ดูหนัง", "ฟังเพลง", "เล่นเกมส์"];
 
   console.log(hobbies);
 
