@@ -10,6 +10,7 @@ import {
   Row,
   Col,
   Form,
+  message,
 } from "antd";
 import { ReactNode, useState } from "react";
 
@@ -35,7 +36,7 @@ function App() {
   };
 
   const done = () => {
-    alert("Done!");
+    message.success("Sign up success!");
   };
 
   return (
@@ -47,7 +48,7 @@ function App() {
           alignItems: "center",
           width: "100vw",
           height: "100vh",
-          background: "linear-gradient(90deg, purple 0%, pink 50%, blue 100%)",
+          background: "linear-gradient(90deg, #D3408D 0%, #4AA1FB 100%)",
         }}
       >
         <div
@@ -77,6 +78,7 @@ function App() {
                 }
               }}
               layout="vertical"
+              className="test"
             >
               <Flex gap={24} vertical>
                 {stepItems[current].content}
@@ -89,6 +91,7 @@ function App() {
                           type="primary"
                           style={{ background: "#D37140" }}
                           block
+                          htmlType="button"
                           onClick={prev}
                         >
                           Previous

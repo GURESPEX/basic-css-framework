@@ -9,7 +9,6 @@ import {
   Input,
   Radio,
   Switch,
-  Typography,
 } from "antd";
 import { useState } from "react";
 
@@ -21,7 +20,6 @@ const ThirdStep = () => {
   const [otherHobbie, setOtherHobbie] = useState<string>("");
   const [isOtherHobbieChecked, setIsOtherHobbieChecked] =
     useState<boolean>(false);
-  const [accept, setAccept] = useState<boolean>(false);
 
   const options = ["ดูหนัง", "ฟังเพลง", "เล่นเกมส์"];
 
@@ -111,7 +109,23 @@ const ThirdStep = () => {
           </div>
         </Flex>
       </Form.Item>
-      <Flex gap={4}>
+      <Form.Item
+        style={{ margin: 0 }}
+        label="ยอมรับเงื่อนไข : "
+        name="accept"
+        rules={[
+          {
+            validator(_, value) {
+              return value
+                ? Promise.resolve()
+                : Promise.reject(new Error("Please accept terms of service!"));
+            },
+          },
+        ]}
+      >
+        <Switch />
+      </Form.Item>
+      {/* <Flex gap={4}>
         <Typography.Text>ยอมรับเงื่อนไข : </Typography.Text>
         <Switch
           value={accept}
@@ -119,7 +133,7 @@ const ThirdStep = () => {
             setAccept(!accept);
           }}
         />
-      </Flex>
+      </Flex> */}
     </StepContent>
   );
 };

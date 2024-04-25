@@ -12,7 +12,10 @@ const SecondStep = () => {
           {
             required: true,
             message: "Please input your email!",
+          },
+          {
             type: "email",
+            message: "Please input right email!",
           },
         ]}
       >
@@ -26,7 +29,10 @@ const SecondStep = () => {
           {
             required: true,
             message: "Please input your phone number!",
+          },
+          {
             pattern: /^[0-9]{10}$/,
+            message: "Please input right phone number!",
           },
         ]}
       >
