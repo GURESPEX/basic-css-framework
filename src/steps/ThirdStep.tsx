@@ -9,6 +9,7 @@ import {
   Input,
   Radio,
   Switch,
+  Typography,
 } from "antd";
 import { useState } from "react";
 
@@ -47,7 +48,6 @@ const ThirdStep = () => {
       </Form.Item>
       <Form.Item
         style={{ margin: 0 }}
-        label="Gender : "
         name="gender"
         rules={[
           {
@@ -56,15 +56,32 @@ const ThirdStep = () => {
           },
         ]}
       >
-        <Radio.Group
-          onChange={(e) => {
-            setGender(e.target.value);
-          }}
-          value={gender}
-        >
-          <Radio value={"male"}>ชาย</Radio>
-          <Radio value={"female"}>หญิง</Radio>
-        </Radio.Group>
+        <Flex gap={8}>
+          <Flex align="center">
+            <div
+              style={{
+                display: "inline-block",
+                marginInlineEnd: "4px",
+                color: "#ff4d4f",
+                fontSize: "14px",
+                fontFamily: "SimSun, sans-serif",
+                lineHeight: "1",
+              }}
+            >
+              *
+            </div>
+            <Typography.Text>Gender : </Typography.Text>
+          </Flex>
+          <Radio.Group
+            onChange={(e) => {
+              setGender(e.target.value);
+            }}
+            value={gender}
+          >
+            <Radio value={"male"}>ชาย</Radio>
+            <Radio value={"female"}>หญิง</Radio>
+          </Radio.Group>
+        </Flex>
       </Form.Item>
       <Form.Item style={{ margin: 0 }} label="งานอดิเรก" name="hobbies">
         <Flex gap={8} vertical>
@@ -111,7 +128,6 @@ const ThirdStep = () => {
       </Form.Item>
       <Form.Item
         style={{ margin: 0 }}
-        label="ยอมรับเงื่อนไข : "
         name="accept"
         rules={[
           {
@@ -123,7 +139,12 @@ const ThirdStep = () => {
           },
         ]}
       >
-        <Switch />
+        <Flex gap={8}>
+          <Flex align="center">
+            <Typography.Text>ยอมรับเงื่อนไข : </Typography.Text>
+          </Flex>
+          <Switch />
+        </Flex>
       </Form.Item>
       {/* <Flex gap={4}>
         <Typography.Text>ยอมรับเงื่อนไข : </Typography.Text>
