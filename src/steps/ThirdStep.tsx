@@ -146,15 +146,6 @@ const ThirdStep = () => {
           <Switch />
         </Flex>
       </Form.Item>
-      {/* <Flex gap={4}>
-        <Typography.Text>ยอมรับเงื่อนไข : </Typography.Text>
-        <Switch
-          value={accept}
-          onChange={() => {
-            setAccept(!accept);
-          }}
-        />
-      </Flex> */}
     </StepContent>
   );
 };
