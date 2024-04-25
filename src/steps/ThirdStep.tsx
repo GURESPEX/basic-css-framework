@@ -46,32 +46,35 @@ const ThirdStep = () => {
       >
         <DatePicker style={{ width: "100%" }} />
       </Form.Item>
-      <Form.Item
-        style={{ margin: 0 }}
-        name="gender"
-        rules={[
-          {
-            required: true,
-            message: "Please input your gender!",
-          },
-        ]}
-      >
-        <Flex gap={8}>
-          <Flex align="center">
-            <div
-              style={{
-                display: "inline-block",
-                marginInlineEnd: "4px",
-                color: "#ff4d4f",
-                fontSize: "14px",
-                fontFamily: "SimSun, sans-serif",
-                lineHeight: "1",
-              }}
-            >
-              *
-            </div>
-            <Typography.Text>Gender : </Typography.Text>
-          </Flex>
+      <Flex gap={8}>
+        <Flex
+          align="center"
+          style={{ display: "flex", alignItems: "center", height: 32 }}
+        >
+          <div
+            style={{
+              display: "inline-block",
+              marginInlineEnd: "4px",
+              color: "#ff4d4f",
+              fontSize: "14px",
+              fontFamily: "SimSun, sans-serif",
+              lineHeight: "1",
+            }}
+          >
+            *
+          </div>
+          <Typography.Text>Gender : </Typography.Text>
+        </Flex>
+        <Form.Item
+          style={{ margin: 0, flex: 1 }}
+          name="gender"
+          rules={[
+            {
+              required: true,
+              message: "Please input your gender!",
+            },
+          ]}
+        >
           <Radio.Group
             onChange={(e) => {
               setGender(e.target.value);
@@ -81,8 +84,8 @@ const ThirdStep = () => {
             <Radio value={"male"}>ชาย</Radio>
             <Radio value={"female"}>หญิง</Radio>
           </Radio.Group>
-        </Flex>
-      </Form.Item>
+        </Form.Item>
+      </Flex>
       <Form.Item style={{ margin: 0 }} label="งานอดิเรก" name="hobbies">
         <Flex gap={8} vertical>
           <Checkbox
@@ -126,26 +129,30 @@ const ThirdStep = () => {
           </div>
         </Flex>
       </Form.Item>
-      <Form.Item
-        style={{ margin: 0 }}
-        name="accept"
-        rules={[
-          {
-            validator(_, value) {
-              return value
-                ? Promise.resolve()
-                : Promise.reject(new Error("Please accept terms of service!"));
+      <Flex align="start" gap={8}>
+        <Typography.Text
+          style={{ display: "flex", alignItems: "center", height: 32 }}
+        >
+          ยอมรับเงื่อนไข :{" "}
+        </Typography.Text>
+        <Form.Item
+          style={{ margin: 0, flex: 1 }}
+          name="accept"
+          rules={[
+            {
+              validator(_, value) {
+                return value
+                  ? Promise.resolve()
+                  : Promise.reject(
+                      new Error("Please accept terms of service!")
+                    );
+              },
             },
-          },
-        ]}
-      >
-        <Flex gap={8}>
-          <Flex align="center">
-            <Typography.Text>ยอมรับเงื่อนไข : </Typography.Text>
-          </Flex>
+          ]}
+        >
           <Switch />
-        </Flex>
-      </Form.Item>
+        </Form.Item>
+      </Flex>
     </StepContent>
   );
 };

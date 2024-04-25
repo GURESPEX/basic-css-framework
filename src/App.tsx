@@ -20,6 +20,20 @@ interface IContentsExtendStepProps extends StepProps {
 
 function App() {
   const [form] = Form.useForm();
+
+  const formData = {
+    username: form.getFieldValue("username"),
+    password: form.getFieldValue("password"),
+    email: form.getFieldValue("email"),
+    phone: form.getFieldValue("phone"),
+    birthDate: form.getFieldValue("birthDate"),
+    gender: form.getFieldValue("gender"),
+    hobbies: form.getFieldValue("hobbies"),
+    accept: form.getFieldValue("accept"),
+  };
+
+  console.log(formData);
+
   const [current, setCurrent] = useState<number>(0);
   const stepItems: IContentsExtendStepProps[] = [
     { content: <FirstStep /> },
@@ -37,6 +51,7 @@ function App() {
 
   const done = () => {
     message.success("Sign up success!");
+    console.log(formData);
   };
 
   return (
